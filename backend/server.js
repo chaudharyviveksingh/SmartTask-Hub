@@ -25,8 +25,12 @@ const server = http.createServer(app);
 // Socket.IO setup
 const io = socketIo(server, {
   cors: {
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
+    origin: [
+      "http://localhost:5173",
+      "https://smart-task-hub-phi.vercel.app"
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
   }
 });
 setupSocket(io);
@@ -40,7 +44,13 @@ const limiter = rateLimit({
 });
 
 // Middleware
-app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173', credentials: true }));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://smart-task-hub-phi.vercel.app"
+  ],
+  credentials: true
+}));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', limiter);
