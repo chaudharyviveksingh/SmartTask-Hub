@@ -8,8 +8,6 @@ A **modern, premium-quality, full-stack MERN web application** for team task man
 
 🚀 Frontend: https://smart-task-hub-phi.vercel.app/
 
-🔧 Backend API: https://smarttask-hub-k3rv.onrender.com/api
-
 > Experience SmartTask Hub live with real-time collaboration, task management, and seamless team workflow.
 
 ## ✨ Features
